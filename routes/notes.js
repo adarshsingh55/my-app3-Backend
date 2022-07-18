@@ -6,7 +6,7 @@ const Notes = require("../models/Notes");
 //1 get all the notes
 router.get("/fetchall", fetchuser, async (req, res) => {
   try {
-    const notes = await Notes.find({ user: req.user.id });
+    const notes = await Notes.find({ user: req.user.id }).sort({date :'desc'});
     res.json(notes);
   } catch (error) {
     console.log(error);
